@@ -245,6 +245,9 @@
     background: var(--soft-white);
   }
 
+  /* Hidden on desktop, shown on mobile via media query */
+  .gallery-mobile { display: none; }
+
   .gallery-header {
     text-align: center;
     max-width: 560px;
@@ -629,19 +632,89 @@
     transform: translateY(0);
   }
 
-  /* ─── RESPONSIVE ─── */
+  /* ─── RESPONSIVE — TABLET ─── */
   @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    .nav-links { gap: 22px; }
     .section { padding: 70px 24px; }
     .about-inner { grid-template-columns: 1fr; gap: 40px; }
     .contact-cards { grid-template-columns: 1fr; }
-    .gallery-grid-1 { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-    .gallery-grid-1 .g-item:first-child { grid-row: span 1; }
     .gallery-grid-2 { grid-template-columns: 1fr 1fr; }
     .gallery-grid-3 { grid-template-columns: 1fr 1fr; }
     footer { flex-direction: column; text-align: center; }
     .urdu-quote { direction: rtl; }
+  }
+
+  /* ─── RESPONSIVE — MOBILE ─── */
+  @media (max-width: 600px) {
+
+    /* NAV: hide logo, 3 links centered on one line */
+    nav {
+      padding: 14px 16px;
+      justify-content: center;
+    }
+    .nav-logo { display: none; }
+    .nav-links {
+      gap: 0;
+      width: 100%;
+      justify-content: space-around;
+    }
+    .nav-links a {
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+
+    /* HERO */
+    #home { padding: 100px 20px 60px; }
+    .hero-sub { font-size: 0.82rem; }
+    .hero-badges { gap: 8px; }
+    .badge { font-size: 0.68rem; padding: 6px 12px; }
+
+    /* SECTION */
+    .section { padding: 60px 16px; }
+
+    /* ── GALLERY MOBILE: 2-1-2-1-2-1 pattern ── */
+    /* Kill all desktop grid layouts */
+    .gallery-grid-1,
+    .gallery-grid-2,
+    .gallery-grid-3 {
+      display: none;
+    }
+
+    /* Show the mobile gallery instead */
+    .gallery-mobile {
+      display: block !important;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .gm-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .gm-row-1 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .gm-row-2 .g-item { height: 140px; }
+    .gm-row-1 .g-item { height: 190px; }
+
+    /* ABOUT */
+    .about-inner { gap: 30px; }
+    .about-photo-grid .g-item:first-child { height: 200px; }
+    .about-photo-grid .g-item { height: 140px; }
+
+    /* CONTACT */
+    .contact-cards { gap: 14px; }
+    .contact-card { padding: 24px 16px 20px; }
+
+    /* FOOTER */
+    footer { padding: 28px 20px; gap: 12px; }
+    .urdu-quote { font-size: 0.72rem; }
   }
 </style>
 </head>
@@ -693,23 +766,23 @@
   <!-- Grid 1 -->
   <div class="gallery-grid-1 reveal">
     <div class="g-item">
-      <div class="g-placeholder"><div class="ph-icon">🦋</div><span>Photo 01</span></div>
+      <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/01.jpg" alt="Amna">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item">
-      <div class="g-placeholder"><div class="ph-icon">🌸</div><span>Photo 02</span></div>
+      <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/02.JPG" alt="Amna">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item">
-      <div class="g-placeholder"><div class="ph-icon">✨</div><span>Photo 03</span></div>
+      <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/03.JPG" alt="Amna">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item">
-      <div class="g-placeholder"><div class="ph-icon">🌙</div><span>Photo 04</span></div>
+      <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/04.JPG" alt="Amna">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item">
-      <div class="g-placeholder"><div class="ph-icon">💙</div><span>Photo 05</span></div>
+      <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/05.JPG" alt="Amna">
       <div class="g-overlay"></div>
     </div>
   </div>
@@ -717,19 +790,19 @@
   <!-- Grid 2 -->
   <div class="gallery-grid-2 reveal">
     <div class="g-item">
-      <div class="g-placeholder"><div class="ph-icon">🦋</div><span>Photo 06</span></div>
+      <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/06.jpg" alt="Amna">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item">
-      <div class="g-placeholder"><div class="ph-icon">🌺</div><span>Photo 07</span></div>
+      <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/07.JPG" alt="Amna">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item">
-      <div class="g-placeholder"><div class="ph-icon">⭐</div><span>Photo 08</span></div>
+      <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/08.JPG" alt="Amna">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item">
-      <div class="g-placeholder"><div class="ph-icon">🌿</div><span>Photo 09</span></div>
+      <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/09.JPG" alt="Amna">
       <div class="g-overlay"></div>
     </div>
   </div>
@@ -737,16 +810,56 @@
   <!-- Grid 3 -->
   <div class="gallery-grid-3 reveal">
     <div class="g-item">
-      <div class="g-placeholder"><div class="ph-icon">🦋</div><span>Photo 10</span></div>
+      <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/010.JPG" alt="Amna">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item">
-      <div class="g-placeholder"><div class="ph-icon">🌸</div><span>Photo 11</span></div>
+      <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/011.jpg" alt="Amna">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item">
-      <div class="g-placeholder"><div class="ph-icon">💙</div><span>Photo 12</span></div>
+      <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/012.jpg" alt="Amna">
       <div class="g-overlay"></div>
+    </div>
+  </div>
+
+  <!-- ── MOBILE GALLERY: 2-1-2-1-2-1 pattern ── -->
+  <div class="gallery-mobile reveal">
+    <!-- Row 1: 2 photos -->
+    <div class="gm-row-2">
+      <div class="g-item"><img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/01.jpg" alt="Amna"><div class="g-overlay"></div></div>
+      <div class="g-item"><img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/02.JPG" alt="Amna"><div class="g-overlay"></div></div>
+    </div>
+    <!-- Row 2: 1 photo -->
+    <div class="gm-row-1">
+      <div class="g-item"><img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/03.JPG" alt="Amna"><div class="g-overlay"></div></div>
+    </div>
+    <!-- Row 3: 2 photos -->
+    <div class="gm-row-2">
+      <div class="g-item"><img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/04.JPG" alt="Amna"><div class="g-overlay"></div></div>
+      <div class="g-item"><img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/05.JPG" alt="Amna"><div class="g-overlay"></div></div>
+    </div>
+    <!-- Row 4: 1 photo -->
+    <div class="gm-row-1">
+      <div class="g-item"><img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/06.jpg" alt="Amna"><div class="g-overlay"></div></div>
+    </div>
+    <!-- Row 5: 2 photos -->
+    <div class="gm-row-2">
+      <div class="g-item"><img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/07.JPG" alt="Amna"><div class="g-overlay"></div></div>
+      <div class="g-item"><img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/08.JPG" alt="Amna"><div class="g-overlay"></div></div>
+    </div>
+    <!-- Row 6: 1 photo -->
+    <div class="gm-row-1">
+      <div class="g-item"><img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/09.JPG" alt="Amna"><div class="g-overlay"></div></div>
+    </div>
+    <!-- Row 7: 2 photos -->
+    <div class="gm-row-2">
+      <div class="g-item"><img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/010.JPG" alt="Amna"><div class="g-overlay"></div></div>
+      <div class="g-item"><img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/011.jpg" alt="Amna"><div class="g-overlay"></div></div>
+    </div>
+    <!-- Row 8: 1 photo -->
+    <div class="gm-row-1">
+      <div class="g-item"><img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/012.jpg" alt="Amna"><div class="g-overlay"></div></div>
     </div>
   </div>
 </section>
@@ -778,15 +891,15 @@
     <div class="about-right reveal">
       <div class="about-photo-grid">
         <div class="g-item">
-          <div class="g-placeholder"><div class="ph-icon">🦋</div><span>Amna · Portrait</span></div>
+          <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/01.jpg" alt="Amna">
           <div class="g-overlay"></div>
         </div>
         <div class="g-item">
-          <div class="g-placeholder"><div class="ph-icon">🌸</div><span>Amna · Photo</span></div>
+          <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/02.JPG" alt="Amna">
           <div class="g-overlay"></div>
         </div>
         <div class="g-item">
-          <div class="g-placeholder"><div class="ph-icon">✨</div><span>Amna · Photo</span></div>
+          <img src="https://raw.githubusercontent.com/daudmirza/butterfly/main/assets/03.JPG" alt="Amna">
           <div class="g-overlay"></div>
         </div>
       </div>
